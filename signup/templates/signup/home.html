@@ -1,0 +1,21 @@
+{% extends 'signup/layout.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'signup/home.css' %}">
+<div class="re">
+    <div><img src="{% static 'signup/water.jpg' %}" alt="My image" width="600" height="630"></div>
+    <div class="b">
+        <h1>welcome {{request.user.username}}</h1>
+       {% if user.is_authenticated %}
+       <a href="{% url 'signup:logout' %}" class="log out">logout</a>
+       {% else %}
+        <a href="{% url 'signup:login' %}" class="log in">login</a><br><br>
+      
+      
+        <a href="{% url 'signup:registerpage' %}" class="log new">Create New Account</a>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

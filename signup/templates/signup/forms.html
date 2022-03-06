@@ -1,0 +1,13 @@
+{% extends 'signup/layout.html' %}
+
+{% block content %}
+
+<h1>Signup </h1>
+<form href="{% url 'signup:index' %}" action="POST">
+    {% csrf_token %}
+  <label><h3>{{form}}</h3>
+</label>  
+<input type="submit" value="Register">
+</form>
+
+{% endblock %}

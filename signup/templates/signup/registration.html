@@ -1,0 +1,28 @@
+{% extends 'signup/layout.html' %}
+{% include 'signup/messages.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet"  type="text/css" href="{% static 'signup/registration.css' %}">
+
+<h1>Signup</h1>
+<form href="" method="POST">
+  {% csrf_token %}
+  <P> {{form.username.label}}</P>
+  <P> {{form.username}}</P>
+  <P> {{form.first_name.label}}</P>
+  <P> {{form.first_name}}</P>
+  <P> {{form.last_name.label}}</P>
+  <P> {{form.last_name}}</P>
+  <P> {{form.email.label}}</P>
+  <P> {{form.email}}</P>
+  <P> {{form.password1.label}}</P>
+  <P> {{form.password1}}</P>
+  <P> {{form.password2.label}}</P>
+  <P> {{form.password2}}</P>
+  <input type="submit" value="Register" name="register" class="log">
+  {{form.errors}}
+<br>
+  <span>Already have an account</span>
+  <a href="{% url 'signup:login' %}" class="login">login</a>
+  {% endblock %}
